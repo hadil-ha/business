@@ -27,12 +27,12 @@ export function Hero() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="md:w-2/3 text-center md:text-right"
           >
-            {/* Logo - centered above slogan */}
-            <div className="mb-8 flex justify-center">
+            {/* Logo - aligned left (end in RTL) near photo */}
+            <div className="mb-4 flex justify-center md:justify-end">
               <img
                 src="/main_white.png"
                 alt="Hadil - פנסיה, ביטוח ופיננסים"
-                className="h-24 md:h-32 lg:h-40 w-auto"
+                className="h-32 md:h-40 lg:h-48 w-auto"
               />
             </div>
 
@@ -89,7 +89,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-10 text-center"
+          className="mt-6 text-center md:text-right"
         >
           <Button
             size="lg"

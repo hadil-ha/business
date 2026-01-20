@@ -84,7 +84,7 @@ export function Navbar() {
       )}
     >
       <nav className="container-padded">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex flex-row-reverse items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a
             href="#hero"

@@ -61,7 +61,7 @@ export function Services() {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-10 h-10 rounded-lg bg-brand-navy/10 flex items-center justify-center flex-shrink-0">
-                    <img src="/black_h.png" alt="" className="w-6 h-6 object-contain" />
+                    <img src="/blue_h.png" alt="" className="w-6 h-6 object-contain" />
                   </div>
                   <CardTitle>{service.title}</CardTitle>
                 </div>

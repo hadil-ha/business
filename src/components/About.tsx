@@ -7,8 +7,6 @@ import { Section, SectionTitle } from './Section'
 export function About() {
   return (
     <Section id="about" background="default">
-      <SectionTitle>הסיפור המקצועי שלי</SectionTitle>
-
       <div className="grid md:grid-cols-3 gap-8 lg:gap-12 items-start">
         {/* Photo */}
         <div className="md:col-span-1">
@@ -21,6 +19,7 @@ export function About() {
 
         {/* Bio Content */}
         <div className="md:col-span-2 space-y-6 text-brand-black/80 leading-relaxed">
+          <SectionTitle centered={false}>הסיפור המקצועי שלי</SectionTitle>
           <p>מי אני?</p>
           <p>
             שמי הדיל חלבי חסון, בת 42, בעלת תואר ראשון בסטטיסטיקה, יועצת
