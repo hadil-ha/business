@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Global styles for Hebrew RTL landing page
+ * Uses brand color palette with mixed light/dark sections
+ */
+@layer base {
+  /* Ensure Hebrew font is applied globally */
+  html {
+    font-family: 'Heebo', system-ui, sans-serif;
+    /* Smooth scrolling for anchor navigation */
+    scroll-behavior: smooth;
+  }
+
+  /* Base body styles - off-white background */
+  body {
+    @apply bg-brand-white text-brand-black;
+    @apply antialiased;
+  }
+
+  /* LTR utility for phone numbers, emails, and URLs */
+  .ltr {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
+  /* Phone and email inputs should display LTR but align text to the right for RTL context */
+  input[type="tel"],
+  input[type="email"] {
+    direction: ltr;
+    text-align: right;
+  }
+
+  /* Focus ring styles for accessibility - gold accent */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-gold ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Container utility for consistent padding */
+  .container-padded {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section padding utility */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
