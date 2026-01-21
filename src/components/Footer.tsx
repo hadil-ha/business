@@ -38,11 +38,11 @@ export function Footer() {
             </a>
 
             <a
-              href="mailto:hadilha1983@gmail.com"
+              href="mailto:hadil@haidl-finance.com"
               className="flex items-center gap-2 text-brand-gray hover:text-brand-white transition-colors"
             >
               <HiMail className="w-5 h-5" />
-              <span className="ltr">hadilha1983@gmail.com</span>
+              <span className="ltr">hadil@haidl-finance.com</span>
             </a>
           </div>
         </div>

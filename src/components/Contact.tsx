@@ -42,14 +42,14 @@ export function Contact() {
 
               {/* Email - clickable with LTR display */}
               <a
-                href="mailto:hadilha1983@gmail.com"
+                href="mailto:hadil@haidl-finance.com"
                 className="flex items-center gap-3 text-brand-black/80 hover:text-brand-navy transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-brand-navy/10 flex items-center justify-center group-hover:bg-brand-navy/20 transition-colors">
                   <HiMail className="w-5 h-5 text-brand-navy" />
                 </div>
                 <span className="ltr text-lg" dir="ltr">
-                  hadilha1983@gmail.com
+                hadil@haidl-finance.com
                 </span>
               </a>
             </div>

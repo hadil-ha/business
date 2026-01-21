@@ -18,13 +18,13 @@
 
 // TODO: Replace with your actual Google Sheet ID
 // Find it in the sheet URL: https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID_HERE/edit
-const SPREADSHEET_ID = 'PASTE_SPREADSHEET_ID_HERE';
+const SPREADSHEET_ID = '1iajcLtCcejs28EpwZOrt8aWqGI2-SpwEkDcThkv1PJ0';
 
 // Sheet name where leads will be stored (will be created if doesn't exist)
 const SHEET_NAME = 'Leads';
 
 // TODO: Replace with your email address for notifications
-const NOTIFY_EMAIL = 'notify@example.com';
+const NOTIFY_EMAIL = 'hadilha1983@gmail.com';
 
 // ============================================
 // MAIN HANDLERS
@@ -118,7 +118,7 @@ function writeLeadToSheet(data) {
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
     // Add headers for new sheet
-    sheet.appendRow(['Timestamp', 'Full Name', 'Phone', 'Email', 'Message']);
+    sheet.appendRow(['תאריך', 'שם מלא', 'טלפון', 'אימייל', 'הודעה']);
     // Format header row
     sheet.getRange(1, 1, 1, 5).setFontWeight('bold');
   }
@@ -151,95 +151,125 @@ function writeLeadToSheet(data) {
 /**
  * Sends email notification for new lead
  * Uses HTML body with RTL support for Hebrew
+ * Luxury aesthetic with brand colors
  *
  * @param {Object} data - Lead data object
  */
 function sendNotificationEmail(data) {
-  // Email subject in Hebrew (exact as specified)
-  const subject = 'ליד חדש מדף הנחיתה';
+  // Email subject in Hebrew
+  const subject = '✨ ליד חדש התקבל';
 
-  // Build HTML email body
+  // Build HTML email body with luxury brand aesthetic
   const htmlBody = `
     <!DOCTYPE html>
     <html dir="rtl" lang="he">
     <head>
       <meta charset="UTF-8">
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          line-height: 1.6;
-          color: #333;
-          direction: rtl;
-        }
-        .container {
-          max-width: 600px;
-          margin: 0 auto;
-          padding: 20px;
-        }
-        h2 {
-          color: #1a1a1a;
-          border-bottom: 2px solid #e0e0e0;
-          padding-bottom: 10px;
-        }
-        table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 20px;
-        }
-        th, td {
-          padding: 12px;
-          text-align: right;
-          border-bottom: 1px solid #e0e0e0;
-        }
-        th {
-          background-color: #f8f9fa;
-          font-weight: bold;
-          width: 120px;
-        }
-        .ltr {
-          direction: ltr;
-          text-align: left;
-        }
-        .footer {
-          margin-top: 30px;
-          padding-top: 20px;
-          border-top: 1px solid #e0e0e0;
-          font-size: 12px;
-          color: #666;
-        }
-      </style>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-      <div class="container">
-        <h2>ליד חדש התקבל מדף הנחיתה</h2>
+    <body style="margin: 0; padding: 0; background-color: #f8f7f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f8f7f5;">
+        <tr>
+          <td align="center" style="padding: 40px 20px;">
+            <!-- Main Container -->
+            <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; width: 100%;">
 
-        <table>
-          <tr>
-            <th>שם מלא</th>
-            <td>${escapeHtml(data.fullName)}</td>
-          </tr>
-          <tr>
-            <th>טלפון</th>
-            <td class="ltr">${escapeHtml(data.phone)}</td>
-          </tr>
-          <tr>
-            <th>אימייל</th>
-            <td class="ltr">${escapeHtml(data.email)}</td>
-          </tr>
-          <tr>
-            <th>הודעה</th>
-            <td>${data.message ? escapeHtml(data.message) : '<em style="color: #999">לא הוזנה הודעה</em>'}</td>
-          </tr>
-          <tr>
-            <th>תאריך שליחה</th>
-            <td class="ltr">${formatTimestamp(data.timestamp)}</td>
-          </tr>
-        </table>
+              <!-- Header with Navy Background -->
+              <tr>
+                <td style="background: linear-gradient(135deg, #0a1628 0%, #132238 100%); padding: 40px 40px 30px; border-radius: 16px 16px 0 0; text-align: center;">
+                  <!-- Gold Decorative Line -->
+                  <table role="presentation" width="60" cellspacing="0" cellpadding="0" border="0" align="center">
+                    <tr>
+                      <td style="height: 3px; background: linear-gradient(90deg, transparent, #d4a853, transparent);"></td>
+                    </tr>
+                  </table>
+                  <h1 style="color: #f8f7f5; font-size: 28px; font-weight: 300; margin: 20px 0 10px; letter-spacing: 1px;">ליד חדש התקבל</h1>
+                  <p style="color: #d4a853; font-size: 14px; margin: 0; font-weight: 500;">מדף הנחיתה שלך</p>
+                </td>
+              </tr>
 
-        <div class="footer">
-          <p>הודעה זו נשלחה אוטומטית מטופס יצירת קשר באתר.</p>
-        </div>
-      </div>
+              <!-- Content Area -->
+              <tr>
+                <td style="background-color: #ffffff; padding: 0;">
+
+                  <!-- Lead Info Card -->
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                      <td style="padding: 40px;">
+
+                        <!-- Name Section -->
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 24px;">
+                          <tr>
+                            <td style="padding: 20px; background-color: #faf9f7; border-radius: 12px; border-right: 4px solid #d4a853;">
+                              <p style="color: #8b8680; font-size: 12px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 1px;">שם מלא</p>
+                              <p style="color: #0a1628; font-size: 20px; margin: 0; font-weight: 600;">${escapeHtml(data.fullName)}</p>
+                            </td>
+                          </tr>
+                        </table>
+
+                        <!-- Contact Details Grid -->
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 24px;">
+                          <tr>
+                            <!-- Phone -->
+                            <td width="48%" style="padding: 16px 20px; background-color: #0a1628; border-radius: 10px; vertical-align: top;">
+                              <p style="color: #d4a853; font-size: 11px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 1px;">טלפון</p>
+                              <p style="color: #f8f7f5; font-size: 16px; margin: 0; font-weight: 500; direction: ltr; text-align: right;">${escapeHtml(data.phone)}</p>
+                            </td>
+                            <td width="4%"></td>
+                            <!-- Email -->
+                            <td width="48%" style="padding: 16px 20px; background-color: #0a1628; border-radius: 10px; vertical-align: top;">
+                              <p style="color: #d4a853; font-size: 11px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 1px;">אימייל</p>
+                              <p style="color: #f8f7f5; font-size: 14px; margin: 0; font-weight: 500; direction: ltr; text-align: right; word-break: break-all;">${escapeHtml(data.email)}</p>
+                            </td>
+                          </tr>
+                        </table>
+
+                        <!-- Message Section -->
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 24px;">
+                          <tr>
+                            <td style="padding: 20px; background-color: #faf9f7; border-radius: 12px; border: 1px solid #e8e6e3;">
+                              <p style="color: #8b8680; font-size: 12px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 1px;">הודעה</p>
+                              <p style="color: #0a1628; font-size: 15px; margin: 0; line-height: 1.7;">${data.message ? escapeHtml(data.message) : '<span style="color: #b5b0a8; font-style: italic;">לא הוזנה הודעה</span>'}</p>
+                            </td>
+                          </tr>
+                        </table>
+
+                        <!-- Timestamp -->
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                          <tr>
+                            <td align="center">
+                              <p style="color: #b5b0a8; font-size: 12px; margin: 0;">
+                                <span style="color: #d4a853;">●</span>&nbsp;&nbsp;התקבל בתאריך: ${formatTimestamp(data.timestamp)}&nbsp;&nbsp;<span style="color: #d4a853;">●</span>
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+              <!-- Footer -->
+              <tr>
+                <td style="background: linear-gradient(135deg, #0a1628 0%, #132238 100%); padding: 30px 40px; border-radius: 0 0 16px 16px; text-align: center;">
+                  <!-- Gold Line -->
+                  <table role="presentation" width="40" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-bottom: 16px;">
+                    <tr>
+                      <td style="height: 2px; background-color: #d4a853;"></td>
+                    </tr>
+                  </table>
+                  <p style="color: #7a8599; font-size: 12px; margin: 0 0 8px;">הודעה זו נשלחה אוטומטית ממערכת הלידים</p>
+                  <p style="color: #4a5568; font-size: 11px; margin: 0;">הדיל חלבי חסון | ייעוץ פנסיוני ופיננסי</p>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
     </body>
     </html>
   `;
@@ -249,7 +279,7 @@ function sendNotificationEmail(data) {
     to: NOTIFY_EMAIL,
     subject: subject,
     htmlBody: htmlBody,
-    name: 'מערכת לידים'
+    name: 'הדיל - מערכת לידים'
   });
 
   console.log('Notification email sent to:', NOTIFY_EMAIL);
@@ -257,74 +287,103 @@ function sendNotificationEmail(data) {
 
 /**
  * Sends error notification email when something goes wrong
+ * Styled with brand aesthetic
  *
  * @param {Error} error - The error object
  * @param {string} payload - The original request payload
  */
 function sendErrorEmail(error, payload) {
-  // Email subject in Hebrew (exact as specified)
-  const subject = 'שגיאה בטופס ליד';
+  // Email subject in Hebrew
+  const subject = '⚠️ שגיאה במערכת הלידים';
 
-  // Build HTML email body
+  // Build HTML email body with brand aesthetic
   const htmlBody = `
     <!DOCTYPE html>
     <html dir="rtl" lang="he">
     <head>
       <meta charset="UTF-8">
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          line-height: 1.6;
-          color: #333;
-          direction: rtl;
-        }
-        .container {
-          max-width: 600px;
-          margin: 0 auto;
-          padding: 20px;
-        }
-        h2 {
-          color: #dc3545;
-          border-bottom: 2px solid #dc3545;
-          padding-bottom: 10px;
-        }
-        .error-box {
-          background-color: #fff3f3;
-          border: 1px solid #dc3545;
-          border-radius: 4px;
-          padding: 15px;
-          margin: 20px 0;
-        }
-        pre {
-          background-color: #f8f9fa;
-          padding: 15px;
-          border-radius: 4px;
-          overflow-x: auto;
-          direction: ltr;
-          text-align: left;
-          font-size: 12px;
-        }
-      </style>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-      <div class="container">
-        <h2>שגיאה בטופס ליד</h2>
+    <body style="margin: 0; padding: 0; background-color: #f8f7f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f8f7f5;">
+        <tr>
+          <td align="center" style="padding: 40px 20px;">
+            <!-- Main Container -->
+            <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; width: 100%;">
 
-        <div class="error-box">
-          <strong>הודעת שגיאה:</strong>
-          <p>${escapeHtml(error.message || 'Unknown error')}</p>
-        </div>
+              <!-- Header with Error Theme -->
+              <tr>
+                <td style="background: linear-gradient(135deg, #8b2635 0%, #6b1d29 100%); padding: 40px 40px 30px; border-radius: 16px 16px 0 0; text-align: center;">
+                  <!-- Warning Icon -->
+                  <p style="font-size: 40px; margin: 0 0 10px;">⚠️</p>
+                  <h1 style="color: #f8f7f5; font-size: 24px; font-weight: 300; margin: 0 0 10px; letter-spacing: 1px;">שגיאה במערכת</h1>
+                  <p style="color: #f5c6cb; font-size: 14px; margin: 0;">נדרשת בדיקה</p>
+                </td>
+              </tr>
 
-        <h3>Payload שהתקבל:</h3>
-        <pre>${escapeHtml(payload)}</pre>
+              <!-- Content Area -->
+              <tr>
+                <td style="background-color: #ffffff; padding: 40px;">
 
-        <h3>Stack Trace:</h3>
-        <pre>${escapeHtml(error.stack || 'No stack trace available')}</pre>
+                  <!-- Error Message -->
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 24px;">
+                    <tr>
+                      <td style="padding: 20px; background-color: #fef2f2; border-radius: 12px; border-right: 4px solid #dc3545;">
+                        <p style="color: #8b2635; font-size: 12px; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">הודעת שגיאה</p>
+                        <p style="color: #0a1628; font-size: 15px; margin: 0; line-height: 1.6;">${escapeHtml(error.message || 'שגיאה לא ידועה')}</p>
+                      </td>
+                    </tr>
+                  </table>
 
-        <p style="color: #666; font-size: 12px; margin-top: 30px;">
-          תאריך: ${new Date().toISOString()}
-        </p>
-      </div>
+                  <!-- Payload Section -->
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <p style="color: #8b8680; font-size: 12px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 1px;">נתונים שהתקבלו</p>
+                        <div style="padding: 16px; background-color: #0a1628; border-radius: 10px; overflow-x: auto;">
+                          <pre style="color: #a0aec0; font-size: 12px; margin: 0; direction: ltr; text-align: left; white-space: pre-wrap; word-break: break-all; font-family: 'Courier New', monospace;">${escapeHtml(payload)}</pre>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Stack Trace -->
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 24px;">
+                    <tr>
+                      <td>
+                        <p style="color: #8b8680; font-size: 12px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 1px;">פרטים טכניים</p>
+                        <div style="padding: 16px; background-color: #faf9f7; border-radius: 10px; border: 1px solid #e8e6e3; overflow-x: auto;">
+                          <pre style="color: #4a5568; font-size: 11px; margin: 0; direction: ltr; text-align: left; white-space: pre-wrap; word-break: break-all; font-family: 'Courier New', monospace;">${escapeHtml(error.stack || 'אין מידע נוסף')}</pre>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Timestamp -->
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                      <td align="center">
+                        <p style="color: #b5b0a8; font-size: 12px; margin: 0;">
+                          תאריך: ${new Date().toLocaleString('he-IL')}
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+              <!-- Footer -->
+              <tr>
+                <td style="background: linear-gradient(135deg, #0a1628 0%, #132238 100%); padding: 24px 40px; border-radius: 0 0 16px 16px; text-align: center;">
+                  <p style="color: #7a8599; font-size: 12px; margin: 0;">התראה אוטומטית ממערכת הלידים</p>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
     </body>
     </html>
   `;
@@ -335,7 +394,7 @@ function sendErrorEmail(error, payload) {
       to: NOTIFY_EMAIL,
       subject: subject,
       htmlBody: htmlBody,
-      name: 'מערכת לידים - התראת שגיאה'
+      name: 'הדיל - התראת מערכת'
     });
     console.log('Error notification email sent');
   } catch (emailError) {
