@@ -14,18 +14,7 @@ export function Footer() {
     >
       <div className="container-padded">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          {/* Business Info */}
-          <div>
-            <img
-              src="/footer.png"
-              alt="Hadil - פנסיה, ביטוח ופיננסים"
-              className="h-16 w-auto mb-2"
-            />
-            {/* TODO: removebusiness info */}
-            {/* <p className="text-brand-gray text-sm">
-              ייעוץ פיננסי, פנסיוני וביטוחי מקצועי
-            </p> */}
-          </div>
+
 
           {/* Contact Info */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
